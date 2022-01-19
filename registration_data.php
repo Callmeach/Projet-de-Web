@@ -33,7 +33,7 @@ if(isset($nom, $prenom, $sexe, $birthday, $nationality, $serie, $dateBac)){
 			$allowedextension = ['pdf'];
 			if(in_array($extension,$allowedextension)){
 				//Valider le fichier et le stocker
-				move_uploaded_file($_FILES['diplome']['tmp_name'], 'uploads/'.$rand().($_FILES['diplome']['name']));
+				move_uploaded_file($_FILES['diplome']['tmp_name'], 'uploads/'.rand().($_FILES['diplome']['name']));
 				echo 'Le fichier a ete envoye avec succes.';
 				
 				//Enregistrer le chemin d'acces au fichier dans la base de donnees
