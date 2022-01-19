@@ -32,14 +32,16 @@ if(isset($nom, $prenom, $sexe, $birthday, $nationality, $serie, $dateBac)){
 			$extension = $fileInfo['extension'];
 			$allowedextension = ['pdf'];
 			if(in_array($extension,$allowedextension)){
+				//Tester si le fichier existe deja dans le repertoire uploads
+				$filename = file_exists('uploads/'.$_FILES['diplome']['name']) ? rand(1,1000).($_FILES['diplome']['name']) : $_FILES['diplome']['name'];
 				//Valider le fichier et le stocker
-				move_uploaded_file($_FILES['diplome']['tmp_name'], 'uploads/'.rand().($_FILES['diplome']['name']));
+				move_uploaded_file($_FILES['diplome']['tmp_name'], 'uploads/'.$filename);
 				echo 'Le fichier a ete envoye avec succes.';
 				
 				//Enregistrer le chemin d'acces au fichier dans la base de donnees
 				
 				$requete = $mydb->prepare("INSERT INTO files (nom,chemin) VALUES (:nom, :chemin)");
-				$chemin = "/uploads/".$_FILES['diplome']['name'];
+				$chemin = "/uploads/".$filename;
 				$requete->execute(array("nom"=>$_FILES['diplome']['name'], "chemin"=>$chemin));
 			}
 			else{
