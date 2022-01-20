@@ -68,6 +68,7 @@ if(isset($nom, $prenom, $sexe, $birthday, $nationality, $serie, $dateBac)){
 			$extension = $fileInfo['extension'];
 			$allowedextension = ['pdf'];
 			if(in_array($extension,$allowedextension)){
+<<<<<<< HEAD
 				
 				//Tester si le fichier existe deja dans le repertoire uploads
 				$filename = file_exists('uploads/'.$_FILES['diplome']['name']) ? rand(1,1000).($_FILES['diplome']['name']) : $_FILES['diplome']['name'];
@@ -75,6 +76,13 @@ if(isset($nom, $prenom, $sexe, $birthday, $nationality, $serie, $dateBac)){
 				//Valider le fichier et le stocker
 				move_uploaded_file($_FILES['diplome']['tmp_name'], 'uploads/'.$filename);
 				echo 'Inscription effectuee avec succes';
+=======
+				//Tester si le fichier existe deja dans le repertoire uploads
+				$filename = file_exists('uploads/'.$_FILES['diplome']['name']) ? rand(1,1000).($_FILES['diplome']['name']) : $_FILES['diplome']['name'];
+				//Valider le fichier et le stocker
+				move_uploaded_file($_FILES['diplome']['tmp_name'], 'uploads/'.$filename);
+				echo 'Le fichier a ete envoye avec succes.';
+>>>>>>> 7d05dc33fcc1540744b4a6b4b0c9975faaff3177
 				
 				//Enregistrer le chemin d'acces au fichier dans la base de donnees
 				
@@ -98,6 +106,7 @@ if(isset($nom, $prenom, $sexe, $birthday, $nationality, $serie, $dateBac)){
 	}
 $execution = $result->execute(array("nom" => $nom,"prenom" => $prenom,"sexe" => $sexe,"birthday" => $birthday,"nationality" => $nationality,"serie" => $serie,"dateBac" => $dateBac));
 ?>
+<<<<<<< HEAD
 	
 	<?php include 'footer.php' ?>
 	<!-- Back to Top -->
@@ -116,3 +125,5 @@ $execution = $result->execute(array("nom" => $nom,"prenom" => $prenom,"sexe" => 
     <script src="js/main.js"></script>
 </body>
 </html>
+=======
+>>>>>>> 7d05dc33fcc1540744b4a6b4b0c9975faaff3177
