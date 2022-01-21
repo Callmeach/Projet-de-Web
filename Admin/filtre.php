@@ -59,9 +59,9 @@ if(!isset($_SESSION['username'])){
             <option value="">Selectionner une série</option>
             <option value="C">C</option>
             <option value="D">D</option>
-            <option value="E">F</option>
-            <option value="F">A</option>
-            <option value="F">G</option>
+            <option value="F">F</option>
+            <option value="A">A</option>
+            <option value="G">G</option>
         </select>
         <input type="submit" value="Filtrer">
 
